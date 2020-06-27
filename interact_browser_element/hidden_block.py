@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 import time
 
-class Dropdown:
+class HiddenDisplay:
 
     def test(self):
 
@@ -25,5 +25,5 @@ class Dropdown:
         driver.find_element_by_id('show-textbox').click()
         print('is box found: '+ str(input_box.is_displayed()))
 
-obj = Dropdown()
+obj = HiddenDisplay()
 obj.test()
