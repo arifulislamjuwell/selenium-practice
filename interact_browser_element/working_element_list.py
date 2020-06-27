@@ -1,8 +1,8 @@
 from selenium import webdriver
-import os
+import time
 
-class InteractBrowser:
-    
+class ElementList:
+
     def test(self):
 
         """set path to /home/juwel/.profile, 
@@ -10,9 +10,20 @@ class InteractBrowser:
         # driverlocation= '/usr/bin/chromedriver'
         # os.environ['webdriver.chrome.driver']= driverlocation
         base_url= 'https://letskodeit.teachable.com/p/practice'
+
         driver= webdriver.Chrome()
+        
+        driver.get(base_url)
 
-        driver.maximize_window()
+        radio_buttons= driver.find_elements_by_xpath("//input[contains(@name,'cars') and contains(@type,'radio')]")
 
-obj= InteractBrowser()
+        for button in radio_buttons:
+            is_selected= button.is_selected()
+
+            if not is_selected:
+                button.click()
+
+            time.sleep(2)
+
+obj = ElementList()
 obj.test()
